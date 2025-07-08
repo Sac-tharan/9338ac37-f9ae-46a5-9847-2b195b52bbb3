@@ -1,13 +1,14 @@
-name: Run Laravel Tests
+name: Laravel CLI CI
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches: ['main']
-
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,14 +25,11 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Copy .env example file
+      - name: Copy .env file
         run: cp .env.example .env
 
       - name: Generate app key
         run: php artisan key:generate
 
-      - name: Run migrations (optional)
-        run: php artisan migrate --force
-
       - name: Run tests
-        run: php artisan test --verbose
+        run: php artisan test
