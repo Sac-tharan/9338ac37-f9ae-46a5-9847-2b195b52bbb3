@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: laravel_cli_app
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    ports:
+      - "8000:8000"
+    networks:
+      - laravel
+
+  test:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: laravel_cli_test
+    command: ["php", "vendor/bin/phpunit"]
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
