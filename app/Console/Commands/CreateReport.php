@@ -28,10 +28,13 @@ class CreateReport extends Command
     {
         $this->info("Please enter the following");
 
-        $studentId = $this->argument('studentId') ?: $this->ask('Enter Student ID');
+        $studentId = $this->argument('studentId');
+        if (empty($studentId)) {
+            $studentId = $this->ask('Enter Student ID');
+        }
 
         $reportNumber = $this->argument('reportType');
-        if (!in_array($reportNumber, ['1', '2', '3'])) {
+        if (!in_array($reportNumber, ['1', '2', '3'], true)) {
             $reportNumber = $this->ask('Report to generate (1 for Diagnostic, 2 for Progress, 3 for Feedback)');
         }
 
