@@ -6,9 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+    'App\\Services\\DataLoaderService' => $baseDir . '/app/Services/DataLoaderService.php',
+    'App\\Services\\ReportService' => $baseDir . '/app/Services/ReportService.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',
@@ -6097,7 +6100,7 @@ return array(
     'Termwind\\ValueObjects\\Node' => $vendorDir . '/nunomaduro/termwind/src/ValueObjects/Node.php',
     'Termwind\\ValueObjects\\Style' => $vendorDir . '/nunomaduro/termwind/src/ValueObjects/Style.php',
     'Termwind\\ValueObjects\\Styles' => $vendorDir . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
-    'Tests\\Feature\\ExampleTest' => $baseDir . '/tests/Feature/ExampleTest.php',
+    'Tests\\Feature\\CLITest' => $baseDir . '/tests/Feature/CLITest.php',
     'Tests\\TestCase' => $baseDir . '/tests/TestCase.php',
     'Tests\\Unit\\ExampleTest' => $baseDir . '/tests/Unit/ExampleTest.php',
     'TheSeer\\Tokenizer\\Exception' => $vendorDir . '/theseer/tokenizer/src/Exception.php',
